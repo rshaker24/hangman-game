@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman</title>
+    <link rel = "stylesheet" href = "styles/main.css">
+</head>
+<body>
+    <div class = "title">
+        
+    </div>
+    <div class = "game-window">
+        <div class = "hangman-container">
+            <img src = images/gallows.png class = "gallows-image">
+            <div class = "strikes-counter-container">
+                <p class = "strikes-message js-strikes-message">Incorrect Guesses: 0/6 </p>
+            </div>
+        </div>
+        
+        <div class = "keyboard-container">
+            <div class="keyboard">
+
+            </div>
+            <!--
+            <div class = "keyboard-line-1">
+                <button id="btn">Q</button>
+                <button>W</button>
+                <button>E</button>
+                <button>R</button>
+                <button>T</button>
+                <button>Y</button>
+                <button>U</button>
+                <button>I</button>
+                <button>O</button>
+                <button>P</button>
+            </div>
+            <div class = "keyboard-line-2">
+                <button onclick = "enterKey()">A</button>
+                <button>S</button>
+                <button>D</button>
+                <button>F</button>
+                <button>G</button>
+                <button>H</button>
+                <button>J</button>
+                <button>K</button>
+                <button>L</button>
+            </div>
+
+            <div class = "keyboard-line-3">
+                <button>Z</button>
+                <button>X</button>
+                <button>C</button>
+                <button>V</button>
+                <button>B</button>
+                <button>N</button>
+                <button>M</button>
+            </div>
+            -->
+            <!---
+            <div class = "input-box-container"> 
+                <input type = "text" class = "input-box js-input-box" placeholder="Enter A Letter">
+                <button class = "input-enter-button" onclick = "
+                    checkLetter(wordChoice);
+                ">Enter</button>
+            </div>
+            -->
+            <div class = "response-container">
+                <p class = "response-message js-response-message"></p>
+            </div>
+        </div>
+
+        <div class = "word-container js-word-container"></div>
+    </div>    
+
+    <div class="game-end-window">
+        <div class="game-end-message">
+
+        </div>
+        <button class="play-again-button">Play Again</button>
+    </div>
+    <script src = "scripts/main.js"></script>
+</body>
+
+</html>
