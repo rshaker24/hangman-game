@@ -148,11 +148,11 @@ for (let i = 97; i <= 122; i++) {
 function gameOver(isVictory){
     // After game complete.. showing modal with relevant details
     console.log(isVictory);
-    gameEndWindow.style.visibility = 'visible';
     const modalText = isVictory ? `You found the word:` : 'The correct word was:';
     gameEndWindow.querySelector("img").src = `images/${isVictory ? 'victory' : 'lose'}.gif`;
     gameEndWindow.querySelector("h4").innerText = isVictory ? 'Congrats!' :  'Game Over!'
     gameEndWindow.querySelector("p").innerHTML = `${modalText} <b>${wordChoice}</b>`;
+    gameEndWindow.style.visibility = 'visible';
 
 }
 
