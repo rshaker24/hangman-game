@@ -5,7 +5,7 @@ const responseMessage = document.querySelector(".js-response-message")
 const strikesMessage = document.querySelector(".js-strikes-message")
 const hangmanImage = document.querySelector(".hangman-image")
 
-gameEndWindow.style.visibility = 'hidden';
+//gameEndWindow.style.visibility = 'hidden';
 responseMessage.innerHTML = "Welcome to Hangman!";      // Hide
 generateWord()
 
@@ -42,7 +42,8 @@ function resetGame(){
     updateStrikes();
     responseMessage.innerHTML = "Welcome to Hangman!";
     keyboardDiv.querySelectorAll("button").forEach(btn => btn.disabled = false);
-    gameEndWindow.style.visibility = 'hidden';
+    //gameEndWindow.style.visibility = 'hidden';
+    gameEndWindow.classList.remove("show");
     generateWord();
     wordStatus = "_".repeat(wordChoice.length); //repeated from before - fix
     wordStatusArray = wordStatus.split('')
@@ -152,7 +153,7 @@ function gameOver(isVictory){
     gameEndWindow.querySelector("img").src = `images/${isVictory ? 'victory' : 'lose'}.gif`;
     gameEndWindow.querySelector("h4").innerText = isVictory ? 'Congrats!' :  'Game Over!'
     gameEndWindow.querySelector("p").innerHTML = `${modalText} <b>${wordChoice}</b>`;
-    gameEndWindow.style.visibility = 'visible';
+    gameEndWindow.classList.add("show")
 
 }
 
