@@ -14,7 +14,6 @@ playAgainButton.addEventListener("click", () => {resetGame()})
 
 //creating array of letters
 wordArray = wordChoice.split('');
-console.log(wordArray);
 
 //create underscored version of wordChoice
 let wordStatus = "_".repeat(wordChoice.length);
@@ -28,7 +27,6 @@ let strikes = 0;
 function generateWord(){
     genNum = Math.floor(Math.random() * words.length - 0);
     wordChoice = words[genNum];
-    console.log(wordChoice);
     wordArray = wordChoice.split('');
 }
 
@@ -64,14 +62,12 @@ function renderWord(wordStatusArray){
             wordHTML += html;
         }
         else{
-            //console.log('adding letter: ',wordArray[i])
             const html = `
                 <li>${wordArray[i]}</li>
             `
             wordHTML += html;
         }
     }
-    //console.log(wordHTML)
 
     document.querySelector('.js-word-container')
         .innerHTML = wordHTML
@@ -87,22 +83,17 @@ const inputElement = document.querySelector(".js-input-box");
 function initGame(button, clickedLetter){
     const guess = clickedLetter.toUpperCase();
     button.disabled = true;
-    //console.log(guess.length)
-    //console.log(wordChoice.toLowerCase());
     if (strikes !== 6){
         if (wordChoice.includes(guess)){
             console.log("The word does contain ", guess);
             responseMessage.innerHTML = "Correct Guess";
-            //setTimeout(() => {document.querySelector(".js-response-message").innerHTML = ""}, 3000); // create a function that updates response message
             updateWordStatus(wordArray, wordStatusArray, guess);
-            
+
         }else{
-            //console.log("The word does not contain ", guess);
             strikes++;
             updateStrikes();
             hangmanImage.src = `images/hangman-image-${strikes}.png`;
             responseMessage.innerHTML = "Incorrect Guess"
-            //setTimeout(() => {document.querySelector(".js-response-message").innerHTML = ""}, 3000);     
         }   
     }
     if(!wordStatusArray.includes("_")) return gameOver(true);
@@ -112,8 +103,6 @@ function initGame(button, clickedLetter){
 
 //Updates the strikes counter
 function updateStrikes(){
-    //strikes++;
-    //document.querySelector('.js-strikes-message').innerHTML = "Incorrect Guesses: " + strikes + "/6";
     strikesMessage.innerHTML = "Incorrect Guesses: " + strikes + "/6";
     if (strikes === 6){
         return gameOver(false) 
@@ -123,20 +112,17 @@ function updateStrikes(){
 
 // Updates wordStatusArray with new letter
 function updateWordStatus(wordArray, wordStatusArray, guess){
-    //console.log('Ran updateWordStatus functon!');
     for(let i = 0; i < wordArray.length; i++)
     {
         if (wordArray[i] === guess) {
-            //console.log('replacing: ', wordStatusArray[i], 'with: ', wordArray[i])
             wordStatusArray[i] = wordArray[i]; // Replace underscore with guessed letter
-            //console.log('new word status array: ',wordStatusArray);
             renderWord(wordStatusArray);
         }
     }
 }
 
 
-//Creating Keyboard Layout - WIP
+//Creating Keyboard Layout 
 for (let i = 97; i <= 122; i++) {
     const button = document.createElement("button");
     button.innerText = String.fromCharCode(i).toUpperCase();
@@ -144,11 +130,8 @@ for (let i = 97; i <= 122; i++) {
     button.addEventListener("click", (e) => initGame(e.target, String.fromCharCode(i)));
 }
 
-//
-
 function gameOver(isVictory){
     // After game complete.. showing modal with relevant details
-    console.log(isVictory);
     const modalText = isVictory ? `You found the word:` : 'The correct word was:';
     gameEndWindow.querySelector("img").src = `images/${isVictory ? 'victory' : 'lose'}.gif`;
     gameEndWindow.querySelector("h4").innerText = isVictory ? 'Congrats!' :  'Game Over!'

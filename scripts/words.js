@@ -1,8 +1,17 @@
-const words = ["HANGMAN", "COLLEGE", "JAVASCRIPT", "CODING", "PROJECT",];
+const words = ["HANGMAN", "COLLEGE", "JAVASCRIPT", "CODING", "PROJECT", "TECHNOLOGY", "COMPUTER", "INTELLIGENT", "GAME", "STUDIO", "AWESOME", "WONDERFUL", "BEAUTIFUL", "SPLENDID", 
+    "INCREDIBLE", "CHICKEN", "TURKEY", "ALLIGATOR", "GORILLA", "FORTNITE", "MINECRAFT", "ERASER", "PENCIL", "HEADPHONES", "PYTHON", "REACT",
+];
 
-const WordList = [
+const wordListFood = [
     {
         word: "HANGMAN",
-        description: "A popular word game"
+        hint: "A popular word game"
+    },
+]
+
+const wordGeneral = [
+    {
+        word: "HANGMAN",
+        hint: "A popular word game"
     },
 ]
