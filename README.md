@@ -1,1 +1,1 @@
-Personal Project in which I recreated the game Hangman. Uses HTML, CSS, and JavaScipt. 
+Personal Project in which I recreated the game Hangman. Uses HTML, CSS, and JavaScript. 
