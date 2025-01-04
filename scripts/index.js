@@ -40,7 +40,6 @@ function resetGame(){
     updateStrikes();
     responseMessage.innerHTML = "Welcome to Hangman!";
     keyboardDiv.querySelectorAll("button").forEach(btn => btn.disabled = false);
-    //gameEndWindow.style.visibility = 'hidden';
     gameEndWindow.classList.remove("show");
     generateWord();
     wordStatus = "_".repeat(wordChoice.length); //repeated from before - fix
@@ -54,7 +53,6 @@ function resetGame(){
 function renderWord(wordStatusArray){
     let wordHTML = ''
     for(i = 0; i < wordChoice.length; i++){
-        //console.log(wordStatusArray[i])
         if(wordStatusArray[i] === '_'){
             const html = `
                 <li>_</li>
@@ -104,16 +102,12 @@ function initGame(button, clickedLetter){
 //Updates the strikes counter
 function updateStrikes(){
     strikesMessage.innerHTML = "Incorrect Guesses: " + strikes + "/6";
-    if (strikes === 6){
-        return gameOver(false) 
-    }
-
+    if (strikes === 6) return gameOver(false) 
 }
 
 // Updates wordStatusArray with new letter
 function updateWordStatus(wordArray, wordStatusArray, guess){
-    for(let i = 0; i < wordArray.length; i++)
-    {
+    for(let i = 0; i < wordArray.length; i++){
         if (wordArray[i] === guess) {
             wordStatusArray[i] = wordArray[i]; // Replace underscore with guessed letter
             renderWord(wordStatusArray);
