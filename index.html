@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width" />
     <title>Hangman</title>
     <link rel = "stylesheet" href = "styles/index.css">
 </head>
@@ -11,21 +12,24 @@
         
     </div>
     <div class = "game-window">
-        <div class = "hangman-container">
-            <img src = images/hangman-image.png class = "hangman-image">
-            <div class = "strikes-counter-container">
-                <p class = "strikes-message js-strikes-message">Incorrect Guesses: 0/6 </p>
+        <div class = "upper-game-container">
+            <div class = "hangman-container">
+                <img src = images/hangman-image.png class = "hangman-image">
+                <div class = "strikes-counter-container">
+                    <p class = "strikes-message js-strikes-message">Incorrect Guesses: 0/6 </p>
+                </div>
+            </div>
+            
+            <div class = "keyboard-container">
+                <div class="keyboard"></div>
+                <div class = "response-container">
+                    <p class = "response-message js-response-message"></p>
+                </div>
             </div>
         </div>
-        
-        <div class = "keyboard-container">
-            <div class="keyboard"></div>
-            <div class = "response-container">
-                <p class = "response-message js-response-message"></p>
-            </div>
+        <div class = "lower-game-container">
+            <div class = "word-container js-word-container"></div>
         </div>
-
-        <div class = "word-container js-word-container"></div>
     </div>    
 
     <div class="game-end-window">
